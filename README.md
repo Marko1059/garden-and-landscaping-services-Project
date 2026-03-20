@@ -24,16 +24,23 @@ Each user has properties:
 ### [TL;DR](https://en.wikipedia.org/wiki/TL%3BDR)
 you need to run the following 3 command line actions before starting the web server:
   ```bash
-  node install
+  npm install
   npm run auth:schema
   npm run db:push
   ```
+
+Then run the dev web server with
+
+  ```bash
+  npm run dev
+  ```
+
 
 ### setup step 1 - Install Node dependencies
 
 Like any Node project you download from GitHub, first install dependencies with:
   ```bash
-  node install
+  npm install
   ```
 
 This will populate the `node_modules` directory
