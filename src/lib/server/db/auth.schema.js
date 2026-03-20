@@ -16,8 +16,8 @@ export const user = sqliteTable("user", {
     .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
-  balance: integer("balance").notNull().default(0),
-  category: text("category").notNull().default(""),
+  balance: integer("balance").default(0),
+  category: text("category").default(""),
 });
 
 export const session = sqliteTable(

@@ -19,13 +19,74 @@ Each user has properties:
 - `balance`, an integer balance, for whatever currency/credits is appropriate for your project case study
 - `category`, a string, such as member category 'gold', or user type 'admin' etc.
 
+## Setting up this project
+
+### [TL;DR](https://en.wikipedia.org/wiki/TL%3BDR)
+you need to run the following 3 command line actions before starting the web server:
+  ```bash
+  node install
+  npm run auth:schema
+  npm run db:push
+  ```
+
+### setup step 1 - Install Node dependencies
+
+Like any Node project you download from GitHub, first install dependencies with:
+  ```bash
+  node install
+  ```
+
+This will populate the `node_modules` directory
+
+### setup step 2 - Database setup
+
+This project uses better-auth and a local SQLite database file.
+
+Whenever we have added `better-auth` to a SvelteKit project we are told to do the following:
+
+1. Generate the auth schema       
+     ```bash
+     npm run auth:schema
+     ```
+2. Setup/update your database by executing the generated SQL schema commands:
+   - say "YES" when asked about running SQL statements to create DB tables !
+
+   ```bash
+   npm run db:push
+   ```
+
+
+3. Check ORIGIN & BETTER_AUTH_SECRET in .env and adjust it to your need
+  
+   - your project needs a `.env` ([dotenv](https://stackoverflow.com/questions/68267862/what-is-an-env-or-dotenv-file-exactly)) file containing details about where to store the local DB file
+   
+   - if there is no `.env` file, then create one containing the following:
+
+     ```dotenv
+     # Drizzlez
+     DATABASE_URL=local.db
+  
+     ORIGIN="http://localhost:5173"
+  
+     # Better Auth
+     # For production use 32 characters and generated with high entropy
+     # https://www.better-auth.com/docs/installation
+     BETTER_AUTH_SECRET="1e15bf2c-7a59-470b-b4f0-781e06da5163"
+     ```
+
+
+NOTE:
+- usually we would **.gitignore** `.env` files
+- but for this project I've removed this from the ignore list
+- so there should be a `.env` file when you fork/download this start project repo :-)
 
 
 ## Disabling client-side navigation (no caching)
 
-By default, SvelteKit acts as a Single Page Application (SPA): after the first page load, it handles navigation client-side using its own router, which can cache `load()` data and intercept redirects before they reach the server.
+By default, SvelteKit acts as a Single Page Application (SPA): 
+- after the first page load, it handles navigation client-side using its own router, which can cache `load()` data and intercept redirects before they reach the server.
 
-This project disables that behaviour globally via `src/routes/+layout.js`:
+To simplify scripting for detecting whether a user is logged-in or not, this project disables that behaviour globally via `src/routes/+layout.js`:
 
 ```js
 export const csr = false;
