@@ -43,7 +43,7 @@ When you've cloned/downloaded this project from GitHub you need to run the follo
   ```bash
   npm install
   npm run auth:schema
-  npm run db:push
+  npm run db:push                 // say "yes" when prompted
   ```
 
 Then run the dev web server with
@@ -51,6 +51,8 @@ Then run the dev web server with
   ```bash
   npm run dev
   ```
+
+Then **reset the database** using one of the methods above, or create a new user via the `/register` route.
 
 More detailed description about project setup setps can be foudn in: [README_SETUP_DETAILS.md](README_SETUP_DETAILS.md)
 
