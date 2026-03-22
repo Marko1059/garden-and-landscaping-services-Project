@@ -5,37 +5,40 @@
 import { hashPassword } from 'better-auth/crypto';
 import { db } from '$lib/server/db';
 import { user, account, session, verification } from '$lib/server/db/auth.schema.js';
+import seedUsers from '$lib/data/users.json';
 
-const seedUsers = [
-	{ name: 'Matt', email: 'matt@tud.ie',   password: 'password' },
-	{ name: 'Joe',  email: 'joe@apple.com', password: 'password' },
-];
+// Deletes all rows from every auth table (order matters — FK constraints).
+// Accepts a db instance so it can be called from outside SvelteKit (e.g. seed.js).
+export function clearDatabase(dbInstance = db) {
+	dbInstance.delete(verification).run();
+	dbInstance.delete(session).run();
+	dbInstance.delete(account).run();
+	dbInstance.delete(user).run();
+}
 
-export async function resetDatabase() {
-	// Clear all auth tables — order matters for FK constraints
-	db.delete(verification).run();
-	db.delete(session).run();
-	db.delete(account).run();
-	db.delete(user).run();
-
+// Inserts all users from users.json and their credential accounts.
+// Returns an array of the inserted email addresses.
+// Accepts a db instance so it can be called from outside SvelteKit (e.g. seed.js).
+export async function insertUsers(dbInstance = db) {
 	for (const u of seedUsers) {
 		const id = crypto.randomUUID();
 		const now = new Date();
 		const hashed = await hashPassword(u.password);
 
-		db.insert(user).values({
+		dbInstance.insert(user).values({
 			id,
 			name:          u.name,
 			email:         u.email,
 			emailVerified: false,
-			image:         null,
+			image:         u.image ?? null,
 			createdAt:     now,
 			updatedAt:     now,
-			balance:       0,
-			category:      '',
+			balance:       u.balance,
+			category:      u.category,
+			role:          u.role,
 		}).run();
 
-		db.insert(account).values({
+		dbInstance.insert(account).values({
 			id:         crypto.randomUUID(),
 			accountId:  id,
 			providerId: 'credential',
@@ -47,4 +50,10 @@ export async function resetDatabase() {
 	}
 
 	return seedUsers.map((u) => u.email);
+}
+
+// Convenience wrapper used by SvelteKit routes.
+export async function resetDatabase() {
+	clearDatabase();
+	return insertUsers();
 }

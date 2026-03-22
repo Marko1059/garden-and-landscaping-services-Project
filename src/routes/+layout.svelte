@@ -25,3 +25,10 @@
 <hr>
 
 {@render children()}
+
+
+<style>
+	#profile_image {
+		width: 50px;
+	}
+</style>

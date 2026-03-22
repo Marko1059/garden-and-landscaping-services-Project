@@ -1,5 +1,9 @@
 node_modules
 
+.idea
+.DS_STORE
+**/.DS_Store
+
 # Output
 .output
 .vercel

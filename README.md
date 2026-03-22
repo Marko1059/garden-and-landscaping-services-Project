@@ -5,24 +5,41 @@ This project is a basic SvelteKit project, with some basic email+password authen
 - it has the following routes:
   - `/login`
     - for an existing user to login
-  - `/register`
-    - for a new user to register
   - `/logout`
     - for a logged-in user to logout
-  - `seed.js`
-    - there is a JavaScript script `seed.js` that will reset the database to just 2 users:
-      - matt@itb.ie, password = `password`
-      - joe@apple.com, password = `password`
-      - **for this project ALL users should have password = `password`**
+  - `/register`
+    - for a new user to register
 
-Each user has properties:
+## Resetting the database
+
+(don't waste time manually adding / removing users for testing purposes - always add features to make resetting and seeding a database a single comment/route)
+
+When the database is reset, it will reset to the users defined in  `/lib/data/users.json`
+- if you are going to define any more users in here, please make life simple and ensure **ALL users have password = `password`**
+
+There are also 2 ways to reset the database:
+  - **method 1** 
+    - from the command line run `node seed.js`
+      - this runs `/seed.js` in the root of the project directory
+      - (no web server needed)
+  - **method 2**
+    - when the website is running visit route `/resetdatabase`
+      - this runs function `resetDatabase()` which is declared in `/lib/server/seed.js`
+      - (which does the same job as `/seed.js` in the root of the project directory
+
+Each user has basic user properties, plus the following:
 - `balance`, an integer balance, for whatever currency/credits is appropriate for your project case study
 - `category`, a string, such as member category 'gold', or user type 'admin' etc.
+- `role`, a string, such as 'ROLE_MEMBER', 'ROLE_STAFF', 'ROLE_ADMIN'
+  - you could use this to offer a different experience for different types of user
+  - e.g. ROLE_ADMIN could see a list of all users, ROLE_STAFF could see a list contact numbers to phone if help is needed etc.
+
+Learn how to make use of the properites of the currently logged-in user:
+- [README_USING_USER_DATA.md](README_USING_USER_DATA.md)
 
 ## Setting up this project
 
-### [TL;DR](https://en.wikipedia.org/wiki/TL%3BDR)
-you need to run the following 3 command line actions before starting the web server:
+When you've cloned/downloaded this project from GitHub you need to run the following 3 command line actions before starting the web server:
   ```bash
   npm install
   npm run auth:schema
@@ -35,80 +52,19 @@ Then run the dev web server with
   npm run dev
   ```
 
-
-### setup step 1 - Install Node dependencies
-
-Like any Node project you download from GitHub, first install dependencies with:
-  ```bash
-  npm install
-  ```
-
-This will populate the `node_modules` directory
-
-### setup step 2 - Database setup
-
-This project uses better-auth and a local SQLite database file.
-
-Whenever we have added `better-auth` to a SvelteKit project we are told to do the following:
-
-1. Generate the auth schema       
-     ```bash
-     npm run auth:schema
-     ```
-2. Setup/update your database by executing the generated SQL schema commands:
-   - say "YES" when asked about running SQL statements to create DB tables !
-
-   ```bash
-   npm run db:push
-   ```
+More detailed description about project setup setps can be foudn in: [README_SETUP_DETAILS.md](README_SETUP_DETAILS.md)
 
 
-3. Check ORIGIN & BETTER_AUTH_SECRET in .env and adjust it to your need
-  
-   - your project needs a `.env` ([dotenv](https://stackoverflow.com/questions/68267862/what-is-an-env-or-dotenv-file-exactly)) file containing details about where to store the local DB file
-   
-   - if there is no `.env` file, then create one containing the following:
+## Adding additional fields to the 'user' database table
 
-     ```dotenv
-     # Drizzlez
-     DATABASE_URL=local.db
-  
-     ORIGIN="http://localhost:5173"
-  
-     # Better Auth
-     # For production use 32 characters and generated with high entropy
-     # https://www.better-auth.com/docs/installation
-     BETTER_AUTH_SECRET="1e15bf2c-7a59-470b-b4f0-781e06da5163"
-     ```
-
-
-NOTE:
-- usually we would **.gitignore** `.env` files
-- but for this project I've removed this from the ignore list
-- so there should be a `.env` file when you fork/download this start project repo :-)
+If you wish to add additional fields to the 'user' table, you can learn how to do so here:
+- [README_NEW_DB_FIELD.md](README_NEW_DB_FIELD.md)
 
 
 ## Disabling client-side navigation (no caching)
 
-By default, SvelteKit acts as a Single Page Application (SPA): 
-- after the first page load, it handles navigation client-side using its own router, which can cache `load()` data and intercept redirects before they reach the server.
+To allow `/routes/+layout.svelte` to be able to display the currently logged in user on every page, it was necessary to disable caching.
 
-To simplify scripting for detecting whether a user is logged-in or not, this project disables that behaviour globally via `src/routes/+layout.js`:
-
-```js
-export const csr = false;
-```
-
-Setting `csr = false` ("client-side rendering") turns off the SvelteKit client-side router for every page. The result is that the app behaves like a traditional server-rendered website:
-
-- Every link click and form submission is a full HTTP request to the server
-- Every `load()` function always runs fresh on the server — no stale cached data
-- Redirects (e.g. `redirect(302, '/login')`) are real HTTP redirects followed by the browser natively
-- No JavaScript is shipped to the browser at all
-
-### Reverting to SvelteKit defaults
-
-To restore normal SvelteKit SPA behaviour, simply delete the file `src/routes/+layout.js`. The default value of `csr` is `true`, so removing the file is all that is needed.
-
-If you only want to disable caching on specific pages rather than globally, you can instead export `csr = false` from an individual `+page.js` file for just that route.
+Everything should all just work for you, but you can learn a litle more about this here:
+- [README_CACHE_DISABLED.md](README_CACHE_DISABLED.md)
 
