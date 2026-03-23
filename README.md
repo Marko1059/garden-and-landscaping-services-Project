@@ -17,15 +17,10 @@ This project is a basic SvelteKit project, with some basic email+password authen
 When the database is reset, it will reset to the users defined in  `/lib/data/users.json`
 - if you are going to define any more users in here, please make life simple and ensure **ALL users have password = `password`**
 
-There are also 2 ways to reset the database:
-  - **method 1** 
-    - from the command line run `node seed.js`
-      - this runs `/seed.js` in the root of the project directory
-      - (no web server needed)
-  - **method 2**
-    - when the website is running visit route `/resetdatabase`
-      - this runs function `resetDatabase()` which is declared in `/lib/server/seed.js`
-      - (which does the same job as `/seed.js` in the root of the project directory
+There is also a route to reset the database:
+  - when the website is running visit route `/resetdatabase`
+    - this runs function `resetDatabase()` which is declared in `/lib/server/seed.js`
+    - (which does the same job as `/seed.js` in the root of the project directory
 
 Each user has basic user properties, plus the following:
 - `balance`, an integer balance, for whatever currency/credits is appropriate for your project case study
@@ -52,7 +47,7 @@ Then run the dev web server with
   npm run dev
   ```
 
-Then **reset the database** using one of the methods above, or create a new user via the `/register` route.
+Then **reset the database** by visiting the `/resetdatabase` route.
 
 More detailed description about project setup setps can be foudn in: [README_SETUP_DETAILS.md](README_SETUP_DETAILS.md)
 
