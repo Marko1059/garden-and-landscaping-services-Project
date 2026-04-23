@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "grass-cutting",
+    "title": "Grass Cutting",
+    "shortDesc": "Precision lawn mowing for a pristine finish every time.",
+    "fullDesc": "Our professional grass cutting service keeps your lawn looking its best throughout the growing season. We use top-of-the-range mowers suited to all lawn types and sizes. Our team ensures clean, even cuts with neat edges.",
+    "price": "from €40",
+    "duration": "1–3 hours",
+    "icon": "🌱",
+    "image": "/images/grass-cutting.jpg",
+    "features": [
+      "Suitable for all lawn sizes",
+      "Edge trimming included",
+      "Grass clippings removed",
+      "Seasonal scheduling available"
+    ]
+  },
+  {
+    "slug": "hedge-cutting",
+    "title": "Hedge Cutting",
+    "shortDesc": "Shaped and structured hedges that define your garden beautifully.",
+    "fullDesc": "A well-maintained hedge frames your garden and adds real kerb appeal. Our hedge cutting service covers all hedge types. We cut to shape, remove all clippings and leave your hedges looking crisp and professional.",
+    "price": "from €60",
+    "duration": "2–5 hours",
+    "icon": "✂️",
+    "image": "/images/hedge-cutting.jpg",
+    "features": [
+      "All hedge types and heights",
+      "Precision shaping",
+      "All waste removed",
+      "Before and after photos on request"
+    ]
+  },
+  {
+    "slug": "weeding",
+    "title": "Weeding",
+    "shortDesc": "Thorough weed removal from beds, borders, driveways and patios.",
+    "fullDesc": "Weeds compete with your plants for water and nutrients. Our weeding service targets all types of weeds across beds, borders, patios and driveways. We offer both manual removal and targeted treatments.",
+    "price": "from €50",
+    "duration": "2–4 hours",
+    "icon": "🌿",
+    "image": "/images/weeding.jpg",
+    "features": [
+      "Beds, borders and patios",
+      "Manual and treatment options",
+      "Root removal where possible",
+      "Ongoing maintenance plans"
+    ]
+  },
+  {
+    "slug": "design-and-planting",
+    "title": "Design and Planting",
+    "shortDesc": "Bespoke garden design and seasonal planting tailored to your space.",
+    "fullDesc": "Transform your outdoor space with our bespoke garden design and planting service. Whether you want a vibrant cottage garden or a low-maintenance contemporary design, we will work with you to create a plan that suits your style and budget.",
+    "price": "from €150",
+    "duration": "Consultation plus full day planting",
+    "icon": "🎨",
+    "image": "/images/design-planting.jpg",
+    "features": [
+      "Free initial consultation",
+      "Bespoke planting plans",
+      "Seasonal colour planning",
+      "Aftercare advice included"
+    ]
+  }
+]
