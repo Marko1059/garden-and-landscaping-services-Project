@@ -1,20 +1,34 @@
 [
-	{
-		"name": "Matt",
-		"email": "matt@tud.ie",
-		"password": "password",
-		"balance": 100,
-		"category": "elite",
-		"role": "ROLE_ADMIN",
-		"image": "/images/matt.png"
-	},
-	{
-		"name": "Joe",
-		"email": "joe@apple.com",
-		"password": "password",
-		"balance": 0,
-		"category": "bronze",
-		"role": "ROLE_MEMBER",
-		"image": "/images/default.svg"
-	}
+  {
+    "name": "Admin User",
+    "email": "admin@greenscape.com",
+    "password": "password",
+    "role": "ROLE_ADMIN",
+    "category": "admin",
+    "balance": 0
+  },
+  {
+    "name": "Sarah Staff",
+    "email": "staff@greenscape.com",
+    "password": "password",
+    "role": "ROLE_STAFF",
+    "category": "staff",
+    "balance": 0
+  },
+  {
+    "name": "Joe Customer",
+    "email": "joe@example.com",
+    "password": "password",
+    "role": "ROLE_CUSTOMER",
+    "category": "gold",
+    "balance": 200
+  },
+  {
+    "name": "Mary Customer",
+    "email": "mary@example.com",
+    "password": "password",
+    "role": "ROLE_CUSTOMER",
+    "category": "standard",
+    "balance": 50
+  }
 ]
