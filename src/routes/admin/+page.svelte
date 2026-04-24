@@ -1,33 +1,4 @@
-<script>
-    import services from '$lib/data/services.json';
 
-    // ✅ Svelte 5 props
-    let { data } = $props();
-
-    // ✅ reactive
-    let user = $derived(data.user);
-    let isAdmin = $derived(user.role === 'ROLE_ADMIN');
-
-    const bookings = [
-        { id: 1, name: 'Joe Customer',  service: 'Grass Cutting',      date: '2025-06-10', status: 'pending',   email: 'joe@example.com'  },
-        { id: 2, name: 'Mary Customer', service: 'Hedge Cutting',       date: '2025-06-12', status: 'confirmed', email: 'mary@example.com' },
-        { id: 3, name: 'Tom Walsh',     service: 'Design and Planting', date: '2025-06-15', status: 'pending',   email: 'tom@example.com'  },
-        { id: 4, name: 'Ann Murphy',    service: 'Weeding',             date: '2025-06-08', status: 'completed', email: 'ann@example.com'  },
-    ];
-
-    const stats = [
-        { label: 'Bookings This Month', value: 12, icon: '📅' },
-        { label: 'Pending Requests',    value: 4,  icon: '⏳' },
-        { label: 'Completed Jobs',      value: 8,  icon: '✅' },
-        { label: 'Active Customers',    value: 23, icon: '👥' },
-    ];
-
-    function statusClass(status) {
-        if (status === 'confirmed') return 'status-confirmed';
-        if (status === 'completed') return 'status-completed';
-        return 'status-pending';
-    }
-</script>
 
 <svelte:head>
     <title>Admin Dashboard — GreenScape</title>
