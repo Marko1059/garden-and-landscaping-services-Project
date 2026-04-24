@@ -16,3 +16,6 @@ I have created error page incase there will be something goes wrong it reroutes 
 
 --Stage 5.
 I have created a services page for the user have an ability to order services from the website which will be something that will provide a user either hiring a gardener or hirinng order to the house. I havent figured that out yet I just had the basic done. I did used AI to make the basic of the page but I will add more to it when I will figure out what I wil be making. I will also create get in touch with us page for the user to contact us.
+
+--Stage 6.
+Created a javascrip file for the services for the user input that will also display errors if there will be either mistype or if the user inputs some other field into this. I had in ,ind of letting user select the services that the user wants for mor of neat looks for the web page. I did used AI to figure out how to do the error function for the user which I have created and it does look workable.
