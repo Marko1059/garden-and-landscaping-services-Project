@@ -7,3 +7,6 @@ I have added services.json file that will store most of the items I thought woul
 
 --Stage 2.
 I have created a layout in layout.svelte page where I just did main css for the page to make it look more nicer. I did used AI to help me with css, Most of the code for the css was AI produced, I had in mind of making a dark greener asthetics to the web page since its about gardening and plants.
+
+--Stage 3.
+I have created a home page where I will be showing both services and tool for sale for the user to see. I havent implemented a user log in yet and no storage collecting for the users and other stuff. I have used AI for this part as I wasnt sure how Im supposed to do the main page. I have used Ai for the part of understating how to adjust and apply which side of the page I want to do.
