@@ -22,3 +22,6 @@ I have created a page for the services tat will allow users to get to the page a
 
 --Stage 6.
 Created a javascrip file for the services for the user input that will also display errors if there will be either mistype or if the user inputs some other field into this. I had in ,ind of letting user select the services that the user wants for mor of neat looks for the web page. I did used AI to figure out how to do the error function for the user which I have created and it does look workable.
+
+--Stage 7.
+Created a full contact page for the user. I have decided to scrap the idea of making a contact page for the user to imput his email and user to contact us for any enquiries they have decided to provide for anything. I did used AI to add page.service.js file. I used ai for basic user and log in database pull so it rememebers the user to submit the request. So far it is working.
