@@ -10,3 +10,6 @@ I have created a layout in layout.svelte page where I just did main css for the 
 
 --Stage 3.
 I have created a home page where I will be showing both services and tool for sale for the user to see. I havent implemented a user log in yet and no storage collecting for the users and other stuff. I have used AI for this part as I wasnt sure how Im supposed to do the main page. I have used Ai for the part of understating how to adjust and apply which side of the page I want to do.
+
+--Stage 4.
+I have created error page incase there will be something goes wrong it reroutes to the error page that just displays error. i probably wont be adding more to the page as I intend to keep it very simple. I have used Ai for the css for the page.The plan for this page is to auto reroutes to the error page as soon as it provides any issues. I dont know if it will actually work but I will give it a fair attempt to make it work
