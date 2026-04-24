@@ -1,18 +1,13 @@
 <script>
-    // ============================================================
-    // src/routes/admin/+page.svelte
-    // The admin / staff dashboard - only accessible after login
-    // ============================================================
-
     import services from '$lib/data/services.json';
 
-    export let data;
+    // ✅ Svelte 5 props
+    let { data } = $props();
 
-    $: user    = data.user;
-    $: isAdmin = user.role === 'ROLE_ADMIN';
+    // ✅ reactive
+    let user = $derived(data.user);
+    let isAdmin = $derived(user.role === 'ROLE_ADMIN');
 
-    // Example booking requests to display in a table
-    // In a real project these would come from a database
     const bookings = [
         { id: 1, name: 'Joe Customer',  service: 'Grass Cutting',      date: '2025-06-10', status: 'pending',   email: 'joe@example.com'  },
         { id: 2, name: 'Mary Customer', service: 'Hedge Cutting',       date: '2025-06-12', status: 'confirmed', email: 'mary@example.com' },
@@ -20,7 +15,6 @@
         { id: 4, name: 'Ann Murphy',    service: 'Weeding',             date: '2025-06-08', status: 'completed', email: 'ann@example.com'  },
     ];
 
-    // Stats shown at the top of the dashboard
     const stats = [
         { label: 'Bookings This Month', value: 12, icon: '📅' },
         { label: 'Pending Requests',    value: 4,  icon: '⏳' },
@@ -28,7 +22,6 @@
         { label: 'Active Customers',    value: 23, icon: '👥' },
     ];
 
-    // Helper function to return a CSS class based on booking status
     function statusClass(status) {
         if (status === 'confirmed') return 'status-confirmed';
         if (status === 'completed') return 'status-completed';
