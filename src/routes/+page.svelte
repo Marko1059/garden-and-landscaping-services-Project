@@ -1,23 +1,15 @@
 <script>
-    // ============================================================
-    // +page.svelte  (Home Page)
-    // This is the first page people see when they visit your site.
-    // ============================================================
-
-    // Import our services data from the JSON file
     import services from '$lib/data/services.json';
-
-    // Import a helper function from utils.js
     import { getTimeGreeting } from '$lib/utils.js';
 
-    // 'data' comes from +layout.server.js and contains the logged-in user
-    export let data;
-    $: user = data?.user ?? null;
+    // ✅ Svelte 5 props
+    let { data } = $props();
 
-    // Call our utility function to get "Good morning" / "Good afternoon" etc.
+    // ✅ reactive
+    let user = $derived(data?.user ?? null);
+
     const greeting = getTimeGreeting();
 
-    // Testimonials - hardcoded here as an array of objects
     const testimonials = [
         {
             name: "Margaret O'Brien",

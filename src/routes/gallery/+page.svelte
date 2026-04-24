@@ -1,11 +1,4 @@
 <script>
-    // ============================================================
-    // src/routes/gallery/+page.svelte
-    // Photo gallery with category filter buttons and a lightbox popup
-    // ============================================================
-
-    // Gallery items - each has a src (image path), alt text, and category
-    // Replace the src paths with your own images in /static/images/gallery/
     const galleryItems = [
         { src: '/images/gallery/gallery-1.jpg', alt: 'Freshly cut lawn in Clontarf',      category: 'Grass Cutting'      },
         { src: '/images/gallery/gallery-2.jpg', alt: 'Shaped box hedge in Malahide',      category: 'Hedge Cutting'      },
@@ -18,20 +11,17 @@
         { src: '/images/gallery/gallery-9.jpg', alt: 'Edged lawn in front garden',        category: 'Grass Cutting'      },
     ];
 
-    // Build the list of category buttons
-    // 'All' is added first, then we get unique categories from the data
     const categories = ['All', ...new Set(galleryItems.map(item => item.category))];
 
-    // Track which category is selected - starts as 'All'
     let activeCategory = 'All';
 
-    // 'filtered' automatically updates when 'activeCategory' changes
-    // If 'All' is selected, show everything. Otherwise filter by category.
-    $: filtered = activeCategory === 'All'
-        ? galleryItems
-        : galleryItems.filter(item => item.category === activeCategory);
+    // ✅ Svelte 5 reactive
+    let filtered = $derived(
+        activeCategory === 'All'
+            ? galleryItems
+            : galleryItems.filter(item => item.category === activeCategory)
+    );
 
-    // Lightbox - stores the currently enlarged photo (or null if closed)
     let lightboxItem = null;
 
     function openLightbox(item) {

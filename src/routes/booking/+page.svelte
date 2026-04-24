@@ -1,25 +1,19 @@
 <script>
-    // ============================================================
-    // src/routes/booking/+page.svelte
-    // The booking request form
-    // ============================================================
-
     import { enhance } from '$app/forms';
 
-    export let data;
-    export let form;
+    // Svelte 5 props
+    let { data, form } = $props();
 
-    // Shortcuts for the data loaded in +page.server.js
-    $: services    = data.services;
-    $: preselected = data.preselected;
-    $: lastContact = data.lastContact;
+    // Reactive values (Svelte 5 style)
+    let services = $derived(data.services);
+    let preselected = $derived(data.preselected);
+    let lastContact = $derived(data.lastContact);
 
     let submitting = false;
 
-    // Calculate tomorrow's date to use as the minimum selectable date
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const minDate = tomorrow.toISOString().split('T')[0]; // formats as YYYY-MM-DD
+    const minDate = tomorrow.toISOString().split('T')[0];
 </script>
 
 <svelte:head>

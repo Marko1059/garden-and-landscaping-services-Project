@@ -12,7 +12,8 @@
 
     // 'form' contains the result from +page.server.js after submission
     // It will have form.success or form.error depending on what happened
-    export let form;
+     let { form } = $props();
+
 
     // Track whether the form is currently being submitted
     let submitting = false;

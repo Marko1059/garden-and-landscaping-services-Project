@@ -1,17 +1,8 @@
 <script>
-    // ============================================================
-    // src/routes/services/[slug]/+page.svelte
-    //
-    // This is the detail page for a single service.
-    // The 'data' prop receives 'service' and 'related' from
-    // +page.server.js
-    // ============================================================
+    let { data } = $props();
 
-    export let data;
-
-    // Make 'service' and 'related' reactive shortcuts
-    $: service = data.service;
-    $: related = data.related;
+    let service = $derived(data.service);
+    let related = $derived(data.related);
 </script>
 
 <!-- Set the browser tab title dynamically using the service name -->
