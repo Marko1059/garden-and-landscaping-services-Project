@@ -27,4 +27,10 @@ Created a javascrip file for the services for the user input that will also disp
 Created a full contact page for the user. I have decided to scrap the idea of making a contact page for the user to imput his email and user to contact us for any enquiries they have decided to provide for anything. I did used AI to add page.service.js file. I used ai for basic user and log in database pull so it rememebers the user to submit the request. So far it is working.
 
 --Stage 8.
-I have created booking page for the user to book a visist for the gardening services. I have used AI to help me built this page as I did not know how to make the booking function for the svelte kit. With the booking it will take the user and will allow the user to choose a time and date to book for the appointment. I felt like this page wasnt needed as much as I thought but I decided to see how would I be able to do it
+I have created booking page for the user to book a visist for the gardening services. I have used AI to help me built this page as I did not know how to make the booking function for the svelte kit. With the booking it will take the user and will allow the user to choose a time and date to book for the appointment. I felt like this page wasnt needed as much as I thought but I decided to see how would I be able to do it.
+
+--Stage 9.
+I have made a gallery page that will allow user to see the gallery of the garden with photos that are able to be clickable. I did used AI for most of it as I did not know how to make it work. It is very simple page for the user to just view items and pictures.
+
+--Stage 10.
+I created a admin page. Which was the last page I think I needed to make. I dont know if I will need to make more pages everything looks pretty good. I did used AI for the admin page. the point of this page is that for the admin to be able to set and change a lot of things. This will be more of a panel for the project.
