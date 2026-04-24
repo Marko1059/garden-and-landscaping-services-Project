@@ -34,3 +34,6 @@ I have made a gallery page that will allow user to see the gallery of the garden
 
 --Stage 10.
 I created a admin page. Which was the last page I think I needed to make. I dont know if I will need to make more pages everything looks pretty good. I did used AI for the admin page. the point of this page is that for the admin to be able to set and change a lot of things. This will be more of a panel for the project.
+
+--Stage 11 
+I just finished up all of the of the errors I still had, Added pictures to the gallery, home page and services to make it look more neatly. 
